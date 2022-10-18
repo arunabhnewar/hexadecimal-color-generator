@@ -1,30 +1,38 @@
 // Step 1 - Create onload handler
 window.onload = () => {
-    myHexaBgColor()
+    myHexaBgColor();
 }
 
 function myHexaBgColor() {
+
     // Step 3 - Collect all necessary reference
     const content = document.getElementById('content');
     const btn = document.getElementById('change_btn');
-    const output = document.getElementById('output');
+    const output = document.getElementById('output')
 
+    // Step 4 - Handle the click event
     btn.addEventListener('click', function () {
-        const hexaBgColor = generateHexaColor();
-        content.style.background = hexaBgColor;
-        output.value = hexaBgColor;
+        const myBgColor = hexaColorGenerate();
+        content.style.background = myBgColor;
+        output.value = myBgColor;
     })
+
+    // Step 2 - Random color generator function
+    function hexaColorGenerate() {
+        const red = Math.floor(Math.random() * 255);
+        const green = Math.floor(Math.random() * 255);
+        const blue = Math.floor(Math.random() * 255);
+
+        return `#${red.toString(16)}${green.toString(16)}${blue.toString(16)}`
+    }
 }
 
 
-// Step 2 - Random color generator function
-function generateHexaColor() {
-    const red = Math.floor(Math.random() * 255);
-    const green = Math.floor(Math.random() * 255);
-    const blue = Math.floor(Math.random() * 255);
-
-    return `#${red.toString(16)}${green.toString(16)}${blue.toString(16)}`
-}
 
 
-// Step 4 - Handle the click event
+
+
+
+
+
+
